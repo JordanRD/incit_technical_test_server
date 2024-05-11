@@ -3,7 +3,7 @@ config();
 import express, { NextFunction, Request, Response } from "express";
 import cookieSession from "cookie-session";
 import cors from "cors";
-import { MS, NODEMAILER_CREDS, PORT } from "./constants";
+import { CLIENT_URL, MS, NODEMAILER_CREDS, PORT } from "./constants";
 import router from "./router";
 import "./global";
 import initializePassport from "./passport";
@@ -14,7 +14,7 @@ async function main() {
 
     app.use(
         cors({
-            origin: ["http://localhost:5173"],
+            origin: [CLIENT_URL],
             credentials: true,
         })
     );
