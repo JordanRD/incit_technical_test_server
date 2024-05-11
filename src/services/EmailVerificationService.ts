@@ -4,6 +4,7 @@ import { sendEmail } from "../utils";
 import { Op, Transaction } from "sequelize";
 import { BadRequestError } from "../models/AppError";
 import { sequelize } from "../database/pg";
+import { CLIENT_URL } from "../constants";
 
 export default class EmailVerificationService {
     constructor(private props: ServiceProps) {}
@@ -91,10 +92,10 @@ export default class EmailVerificationService {
                     transaction,
                 }
             );
-            const appConfig = await this.props.models.AppConfig.findOne();
+            // const appConfig = await this.props.models.AppConfig.findOne();
             const html = `
             
-            <a href="${appConfig?.client_url}/verify-email/${code}" style="
+            <a href="${CLIENT_URL}/verify-email/${code}" style="
                 font-family:Arial, sans-serif;
                 display:inline-block;
                 border-radius: 0.375rem;

@@ -22,12 +22,12 @@ export const MS = {
 export const GOOGLE_CREDS = {
     CLIENT_ID: process.env.GG_CLIENT_ID!,
     CLIENT_SECRET: process.env.GG_CLIENT_SECRET!,
-    CALLBACK_URL: "/auth/google/callback",
+    CALLBACK_URL: process.env.SERVER_URL + "/auth/google/callback",
 };
 export const FACEBOOK_CREDS = {
     CLIENT_ID: process.env.FB_CLIENT_ID!,
     CLIENT_SECRET: process.env.FB_CLIENT_SECRET!,
-    CALLBACK_URL: "/auth/facebook/callback",
+    CALLBACK_URL: process.env.SERVER_URL + "/auth/facebook/callback",
 };
 
 export const NODEMAILER_CREDS = {
@@ -35,7 +35,9 @@ export const NODEMAILER_CREDS = {
     PASSWORD: process.env.NODEMAILER_PASSWORD,
 };
 
-export const LOGIN_REDIRECT_PATH = "http://localhost:5173/home";
+export const CLIENT_URL = process.env.CLIENT_URL!;
+
+export const LOGIN_REDIRECT_PATH = CLIENT_URL + "/home";
 
 export const PORT = +process.env.PORT!;
 
