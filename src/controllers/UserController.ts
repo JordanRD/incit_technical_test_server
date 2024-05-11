@@ -227,18 +227,18 @@ export default class UserController {
             const users = await req.services.userService.getUserDashboard();
 
             const activeSessionsCount = sessionCount.reduce(
-                (p, current) => p + current.users_count,
+                (p, current) => p + +current.users_count,
                 0
             );
 
             const statisticData = {
-                todaysUsersCount: todaysSession?.users_count || 0,
+                todaysUsersCount: +(todaysSession?.users_count || 0),
                 averageUsersLast7Days: Math.ceil(
                     activeSessionsCount > 0 ? activeSessionsCount / 7 : 0
                 ),
                 usersCount: users.length,
             };
-
+            
             response.data = {
                 statistic: statisticData,
                 users,

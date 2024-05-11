@@ -25,8 +25,8 @@ async function main() {
         secret: "secret",
         httpOnly: true,
         signed: true,
-        // secure: true,
-        sameSite: "none" as "none",
+        // secure: false,
+        // sameSite: "none" as "none",
         maxAge: MS.DAY * 7,
     };
 
