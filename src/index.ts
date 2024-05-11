@@ -19,17 +19,19 @@ async function main() {
         })
     );
 
-    app.use(
-        cookieSession({
-            name: "sessid",
-            secret: "secret",
-            httpOnly: true,
-            signed: true,
-            secure: true,
-            sameSite: "none",
-            maxAge: MS.DAY * 7,
-        })
-    );
+    const cookieSettings = {
+        name: "sessid",
+        secret: "secret",
+        httpOnly: true,
+        signed: true,
+        secure: true,
+        sameSite: "none" as "none",
+        maxAge: MS.DAY * 7,
+    };
+
+    console.log(cookieSettings);
+
+    app.use(cookieSession(cookieSettings));
 
     app.use((request, response, next) => {
         if (request.session && !request.session.regenerate) {
