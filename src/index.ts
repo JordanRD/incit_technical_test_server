@@ -12,6 +12,7 @@ import initializeDependencies from "./dependencies";
 async function main() {
     const app = express();
 
+    app.set("trust proxy", 1);
     app.use(
         cors({
             origin: [CLIENT_URL],
@@ -24,7 +25,7 @@ async function main() {
         secret: "secret",
         httpOnly: true,
         signed: true,
-        secure: true,
+        // secure: true,
         sameSite: "none" as "none",
         maxAge: MS.DAY * 7,
     };
