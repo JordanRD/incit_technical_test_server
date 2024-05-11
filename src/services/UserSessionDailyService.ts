@@ -59,7 +59,7 @@ export default class LogUserSessionDailyService {
                         last_active_at: nowDate,
                         user_id: userId,
                     },
-                    replacements: [nowDate],
+                    replacements: [now.format('YYYY-MM-DD')],
                     transaction,
                 });
             if (!created) {
