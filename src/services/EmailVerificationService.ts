@@ -95,7 +95,7 @@ export default class EmailVerificationService {
             // const appConfig = await this.props.models.AppConfig.findOne();
             const html = `
             
-            <a href="${CLIENT_URL}/verify-email/${code}" style="
+            <a href="${CLIENT_URL}/#/verify-email/${code}" style="
                 font-family:Arial, sans-serif;
                 display:inline-block;
                 border-radius: 0.375rem;

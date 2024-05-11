@@ -37,7 +37,7 @@ export const NODEMAILER_CREDS = {
 
 export const CLIENT_URL = process.env.CLIENT_URL!;
 
-export const LOGIN_REDIRECT_PATH = CLIENT_URL + "/home";
+export const LOGIN_REDIRECT_PATH = CLIENT_URL + "/#/home";
 
 export const PORT = +process.env.PORT!;
 
