@@ -97,7 +97,10 @@ export default class UserService {
                     "logout_at",
                 ],
                 [
-                    sequelize.fn("count", sequelize.col("loginLogs.id")),
+                    sequelize.fn(
+                        "count",
+                        sequelize.literal(`distinct "loginLogs"."id"`)
+                    ),
                     "login_count",
                 ],
             ],

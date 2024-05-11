@@ -84,6 +84,7 @@ export default class UserController {
                 hasPassword: user.hasPassword,
             };
             done(null, currentUser);
+            console.log('called')
             await req.services.logUserLoginService.createLoginHistory(user.id);
         } catch (error) {
             console.log("🚀 > error:", error);

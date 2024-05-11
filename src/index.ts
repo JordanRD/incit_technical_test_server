@@ -26,11 +26,11 @@ async function main() {
         httpOnly: true,
         signed: true,
         // secure: false,
-        sameSite: "none" as "none",
+        sameSite: "lax" as "lax",
         maxAge: MS.DAY * 7,
     };
 
-    console.log(cookieSettings);
+    // console.log(cookieSettings);
 
     app.use(cookieSession(cookieSettings));
 
@@ -64,15 +64,15 @@ async function main() {
         next();
     });
 
-    app.use((req, resp, next) => {
-        console.log(req.session, req.user);
-        next();
-    });
+    // app.use((req, resp, next) => {
+    //     console.log(req.session, req.user);
+    //     next();
+    // });
 
     app.use(router);
 
     app.get("/test", (req, res) => {
-        res.status(200).json({ lala: 2 });
+        res.status(200).json({ testing: true });
     });
 
     app.listen(PORT, () => {

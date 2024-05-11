@@ -8,8 +8,10 @@ export const sequelize = new Sequelize(
     {
         port: PG_CONFIG.PORT,
         host: PG_CONFIG.HOST,
-        dialect: "postgres",schema:'public',
+        dialect: "postgres",
+        schema: "public",
         ssl: true,
+        logging: false,
         dialectOptions: {
             ssl: {
                 rejectUnauthorized: false,
